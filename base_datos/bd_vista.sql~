@@ -607,7 +607,7 @@ CREATE TABLE IF NOT EXISTS `vdoctores` (
 --
 DROP TABLE IF EXISTS `vdoctores`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`alopez_root`@`localhost` SQL SECURITY DEFINER VIEW `vdoctores` AS select `d`.`id_doctor` AS `id_doctor`,`d`.`nombre` AS `nombre`,`d`.`numcolegiado` AS `numcolegiado`,group_concat(`c`.`id_clinica` separator ',') AS `id_clinica`,group_concat(`c`.`nombre` separator '</li><li>') AS `nombre_clinica` from ((`doctores` `d` join `clinica_doctor` `cd`) join `clinicas` `c`) where ((`d`.`id_doctor` = `cd`.`id_doctor`) and (`cd`.`id_clinica` = `c`.`id_clinica`)) group by `d`.`nombre`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vdoctores` AS select `d`.`id_doctor` AS `id_doctor`,`d`.`nombre` AS `nombre`,`d`.`numcolegiado` AS `numcolegiado`,group_concat(`c`.`id_clinica` separator ',') AS `id_clinica`,group_concat(`c`.`nombre` separator '</li><li>') AS `nombre_clinica` from ((`doctores` `d` join `clinica_doctor` `cd`) join `clinicas` `c`) where ((`d`.`id_doctor` = `cd`.`id_doctor`) and (`cd`.`id_clinica` = `c`.`id_clinica`)) group by `d`.`nombre`;
 
 --
 -- Restricciones para tablas volcadas

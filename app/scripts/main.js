@@ -7,7 +7,7 @@ $(document).ready(function() {
     var miTabla = $('#miTabla').DataTable({
         'processing': true,
         'serverSide': true,
-        'ajax': 'http://localhost/carman/cargaTabla.php',
+        'ajax': 'http://www.alopez.infenlaces.com/datatables/php/cargaTabla.php',
         'language': {
             'sProcessing': 'Procesando...',
             'sLengthMenu': 'Mostrar _MENU_ registros',
@@ -47,7 +47,7 @@ $(document).ready(function() {
         }, {
             'data': 'idDoctor',
             'render': function(data) {
-                return '<a class="btn btn-primary editarbtn" href=http://localhost/carman/modificaDoctor.php?id_doctor=' + data + '>Editar</a><a data-toggle="modal" data-target="#basicModal"  class="btn btn-danger borrarbtn" href=http://localhost/carman/borraDoctor.php?id_doctor=' + data + '>Borrar</a>';
+                return '<a class="btn btn-warning editarbtn" href=http://www.alopez.infenlaces.com/datatables/php/modificaDoctor.php?id_doctor=' + data + '>Editar</a><a data-toggle="modal" data-target="#basicModal"  class="btn btn-danger borrarbtn" href=hhttp://www.alopez.infenlaces.com/datatables/php/borraDoctor.php?id_doctor=' + data + '>Borrar</a>';
             }
         }]
     });
@@ -81,7 +81,7 @@ $(document).ready(function() {
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            url: 'http://localhost/carman/borraDoctor.php',
+            url: 'http://www.alopez.infenlaces.com/datatables/php/borraDoctor.php',
             //url: 'borraDoctor.php',
             data: {
                 id_doctor: idDoctor
@@ -89,7 +89,7 @@ $(document).ready(function() {
             error: function(xhr, status, error) {
                 $.growl({
                     icon: "glyphicon glyphicon-remove",
-                    message: "ERROR: fallo al borrar"
+                    message: "No se ha podido borrar"
                 }, {
                     type: "danger"
                 });
@@ -101,7 +101,7 @@ $(document).ready(function() {
                 $mitabla.fnDraw();
                 $.growl({
                     icon: "glyphicon glyphicon-remove",
-                    message: "Borrado correcto"
+                    message: "Registro borrado"
                 }, {
                     type: "success"
                 });
@@ -111,6 +111,8 @@ $(document).ready(function() {
         $('#tabla').fadeIn(100);
     });
     //validar EDITAR
+    
+   
     $('#formEditar').validate({
 
         rules: {
@@ -133,7 +135,7 @@ $(document).ready(function() {
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
-                url: 'http://localhost/carman/modificaDoctor.php',
+                url: 'http://www.alopez.infenlaces.com/datatables/php/modificaDoctor.php',
                  //url: 'modificaDoctor.php',
                 data: {
                     idDoctor: idDoctor,
@@ -188,6 +190,7 @@ $(document).ready(function() {
 
     });
 
+
     //VALIDAR CREAR
 
     $('#formCrear').validate({
@@ -212,7 +215,7 @@ $(document).ready(function() {
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
-                url: 'http://localhost/carman/creaDoctor.php',
+                url: 'http://www.alopez.infenlaces.com/datatables/php/creaDoctor.php',
                  //url: 'creaDoctor.php',
                 data: {
                     nombreNuevo: nombreNuevo,
@@ -280,7 +283,7 @@ $(document).ready(function() {
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            url: 'http://localhost/carman/listaClinicas.php',
+            url: 'http://www.alopez.infenlaces.com/datatables/php/listaClinicas.php',
              //url: 'listaClinicas.php',
             async: false,
             error: function(xhr, status, error) {},
@@ -302,7 +305,7 @@ $(document).ready(function() {
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            url: 'http://localhost/carman/listaClinicas.php',
+            url: 'http://www.alopez.infenlaces.com/datatables/php/listaClinicas.php',
              //url: 'listaClinicas.php',
             async: false,
             error: function(xhr, status, error) {},

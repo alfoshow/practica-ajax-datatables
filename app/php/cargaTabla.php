@@ -23,9 +23,9 @@ $columns = array(
 
 // SQL server connection information
 $sql_details = array(
-    'user' => 'root',
-    'pass' => '',
-    'db'   => 'carman',
+    'user' => 'alopez_root',
+    'pass' => '123456',
+    'db'   => 'alopez_datatables',
     'host' => 'localhost'
 );
 
